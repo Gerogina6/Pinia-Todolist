@@ -1,5 +1,5 @@
 import { defineStore } from "pinia"
-import { ref,reactive } from 'vue'
+import { ref,reactive, computed } from 'vue'
 
 export type Item = {
     id: number,
@@ -12,6 +12,7 @@ const generateId = () => id++
 export const useTodoStore = defineStore('todo', () => {
     const newItem = ref('')
     const items = reactive<Item[]>([])
+    const itemCount = computed(() => items.length)
 
     function addItem(){
         items.push({
@@ -28,6 +29,7 @@ export const useTodoStore = defineStore('todo', () => {
     }
 
     return {
+        itemCount,
         newItem,
         items,
         addItem,

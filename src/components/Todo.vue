@@ -1,4 +1,5 @@
 <template>
+    <div>一共有：{{ todoStore.itemCount }}</div>
     <input type="text" v-model="todoStore.newItem">
     <button @click="todoStore.addItem">add</button>
 
